@@ -1,0 +1,1002 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-01-14T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_health_check",
+      "parentId": "fld_health",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/",
+      "name": "Health Check",
+      "description": "Basic health check",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1705190400000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "fld_health",
+      "parentId": "wrk_cinema",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "name": "Health",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1705190400000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_cinema",
+      "parentId": null,
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "name": "Cinema Management API",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_register",
+      "parentId": "fld_auth",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/auth/register",
+      "name": "Register User",
+      "description": "Egggrafi neou user",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"testuser\",\n  \"password\": \"Test@123\",\n  \"full_name\": \"Test User\",\n  \"email\": \"test@example.com\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1705190400000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "fld_auth",
+      "parentId": "wrk_cinema",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "name": "Authentication",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1705190300000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_login",
+      "parentId": "fld_auth",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/auth/login",
+      "name": "Login",
+      "description": "Login kai pairnoume token",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"admin\",\n  \"password\": \"Admin@123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1705190390000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_logout",
+      "parentId": "fld_auth",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/auth/logout",
+      "name": "Logout",
+      "description": "Logout current user",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190380000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_force_logout",
+      "parentId": "fld_auth",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/auth/force-logout/2",
+      "name": "Force Logout (Admin)",
+      "description": "Admin force logout enos user",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190370000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_validate_token",
+      "parentId": "fld_auth",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/auth/validate-token",
+      "name": "Validate Token",
+      "description": "Elegxos an to token einai valid",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190360000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_get_current_user",
+      "parentId": "fld_users",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/users/me",
+      "name": "Get Current User",
+      "description": "Pairnei ta stoixeia tou current user",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190350000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "fld_users",
+      "parentId": "wrk_cinema",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "name": "Users",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1705190200000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_get_all_users",
+      "parentId": "fld_users",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/users/",
+      "name": "Get All Users (Admin)",
+      "description": "Ola ta users - mono admin",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190340000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_get_user_by_id",
+      "parentId": "fld_users",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/users/2",
+      "name": "Get User By ID (Admin)",
+      "description": "User me vasi to id - mono admin",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190330000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_update_user",
+      "parentId": "fld_users",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/users/2",
+      "name": "Update User Info",
+      "description": "Update user stoixeion",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"full_name\": \"Updated Name\",\n  \"email\": \"updated@example.com\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190320000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_update_password",
+      "parentId": "fld_users",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/users/2/password",
+      "name": "Update Password",
+      "description": "Allagi password",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"old_password\": \"Test@123\",\n  \"new_password\": \"NewTest@123\",\n  \"new_password_confirm\": \"NewTest@123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190310000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_activate_user",
+      "parentId": "fld_users",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/users/2/activate",
+      "name": "Activate User (Admin)",
+      "description": "Energopoiisi user - mono admin",
+      "method": "PUT",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190300000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_deactivate_user",
+      "parentId": "fld_users",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/users/2/deactivate",
+      "name": "Deactivate User (Admin)",
+      "description": "Apenergopoiisi user - mono admin",
+      "method": "PUT",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190290000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_delete_user",
+      "parentId": "fld_users",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/users/2",
+      "name": "Delete User",
+      "description": "Diagrafi user",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190280000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_create_program",
+      "parentId": "fld_programs",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/programs/",
+      "name": "Create Program",
+      "description": "Dimiourgia neou program",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Summer Film Festival 2025\",\n  \"description\": \"Annual summer film festival\",\n  \"start_date\": \"2025-06-01\",\n  \"end_date\": \"2025-06-30\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190270000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "fld_programs",
+      "parentId": "wrk_cinema",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "name": "Programs",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1705190100000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_search_programs_public",
+      "parentId": "fld_programs",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/programs/search",
+      "name": "Search Programs (Public)",
+      "description": "Anazitisi programs xoris auth",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "name",
+          "value": "Summer",
+          "disabled": true
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1705190260000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_search_programs_auth",
+      "parentId": "fld_programs",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/programs/search/authenticated",
+      "name": "Search Programs (Authenticated)",
+      "description": "Anazitisi programs me auth",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "name",
+          "value": "Summer",
+          "disabled": true
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190250000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_get_program_public",
+      "parentId": "fld_programs",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/programs/1",
+      "name": "Get Program (Public)",
+      "description": "Details programatos xoris auth",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1705190240000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_get_program_auth",
+      "parentId": "fld_programs",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/programs/1/authenticated",
+      "name": "Get Program (Authenticated)",
+      "description": "Details programatos me auth",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190230000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_update_program",
+      "parentId": "fld_programs",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/programs/1",
+      "name": "Update Program",
+      "description": "Update program info",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"description\": \"Updated description for summer festival\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190220000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_delete_program",
+      "parentId": "fld_programs",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/programs/1",
+      "name": "Delete Program",
+      "description": "Diagrafi program (mono CREATED state)",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190210000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_update_program_state",
+      "parentId": "fld_programs",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/programs/1/state",
+      "name": "Update Program State",
+      "description": "Allagi state tou program",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"new_state\": \"SUBMISSION\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190200000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_add_programmer",
+      "parentId": "fld_programs",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/programs/1/programmers",
+      "name": "Add Programmer",
+      "description": "Prosthiki programmer sto program",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"user_id\": 2,\n  \"role\": \"PROGRAMMER\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190190000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_add_staff",
+      "parentId": "fld_programs",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/programs/1/staff",
+      "name": "Add Staff",
+      "description": "Prosthiki staff sto program",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"user_id\": 3,\n  \"role\": \"STAFF\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190180000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_create_screening",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/",
+      "name": "Create Screening",
+      "description": "Dimiourgia neou screening",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"program_id\": 1,\n  \"film_title\": \"The Matrix\",\n  \"film_cast\": \"Keanu Reeves, Laurence Fishburne\",\n  \"film_genre\": \"Sci-Fi\",\n  \"film_duration\": 136,\n  \"auditorium_name\": \"Main Hall\",\n  \"start_time\": \"2025-06-15T20:00:00\",\n  \"end_time\": \"2025-06-15T22:30:00\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190170000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "fld_screenings",
+      "parentId": "wrk_cinema",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "name": "Screenings",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1705190000000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_search_screenings_public",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/program/1/search",
+      "name": "Search Screenings (Public)",
+      "description": "Anazitisi screenings xoris auth",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "film_title",
+          "value": "Matrix",
+          "disabled": true
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1705190160000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_search_screenings_auth",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/program/1/search/authenticated",
+      "name": "Search Screenings (Authenticated)",
+      "description": "Anazitisi screenings me auth",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "film_genre",
+          "value": "Sci-Fi",
+          "disabled": true
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190150000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_get_screening_public",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/1",
+      "name": "Get Screening (Public)",
+      "description": "Details screening xoris auth",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1705190140000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_get_screening_auth",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/1/authenticated",
+      "name": "Get Screening (Authenticated)",
+      "description": "Details screening me auth",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190130000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_update_screening",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/1",
+      "name": "Update Screening",
+      "description": "Update screening (mono CREATED state)",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"film_cast\": \"Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190120000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_submit_screening",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/1/submit",
+      "name": "Submit Screening",
+      "description": "Submit screening sto program",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190110000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_withdraw_screening",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/1/withdraw",
+      "name": "Withdraw Screening",
+      "description": "Withdraw kai diagrafi screening",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190100000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_assign_handler",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/1/assign-handler",
+      "name": "Assign Handler",
+      "description": "Assignment STAFF handler",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"handler_id\": 3\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190090000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_review_screening",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/1/review",
+      "name": "Review Screening",
+      "description": "Review screening apo handler",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"review_score\": 8.5,\n  \"review_comments\": \"Excellent choice for the festival. High quality production and relevant to our theme.\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190080000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_approve_screening",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/1/approve",
+      "name": "Approve Screening",
+      "description": "Approval screening apo submitter",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"approval_notes\": \"We agree with the review feedback\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190070000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_reject_screening",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/1/reject",
+      "name": "Reject Screening",
+      "description": "Rejection screening apo programmer",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"rejection_reason\": \"Does not fit the festival theme\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190060000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_final_submit_screening",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/1/final-submit",
+      "name": "Final Submit Screening",
+      "description": "Final submission tou screening",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190050000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_accept_screening",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/1/accept",
+      "name": "Accept Screening (Schedule)",
+      "description": "Teliki apodoxi screening",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190040000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "req_auto_reject",
+      "parentId": "fld_screenings",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "url": "{{ _.base_url }}/screenings/program/1/auto-reject",
+      "name": "Auto Reject Non-Submitted",
+      "description": "Auto rejection gia approved pou den kanane final submit",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1705190030000,
+      "isPrivate": false,
+      "_type": "request"
+    },
+    {
+      "_id": "env_base",
+      "parentId": "wrk_cinema",
+      "modified": 1705190400000,
+      "created": 1705190400000,
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:8000",
+        "token": ""
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url",
+          "token"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1705190400000,
+      "_type": "environment"
+    }
+  ]
+}
